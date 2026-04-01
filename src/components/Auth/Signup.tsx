@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { User, Lock, Eye, EyeOff, AlertCircle, Mail, UserPlus, ArrowLeft } from 'lucide-react';
+import { User, Eye, EyeOff, AlertCircle, Mail, UserPlus, ArrowLeft } from 'lucide-react';
 import { authService } from '../../services/authService';
 
 interface SignupFormData {
@@ -18,7 +18,7 @@ interface SignupProps {
   onBackToLogin?: () => void;
 }
 
-export const Signup: React.FC<SignupProps> = ({ onSignupSuccess, onBackToLogin }) => {
+export const Signup: React.FC<SignupProps> = ({ onBackToLogin }) => {
   const [formData, setFormData] = useState<SignupFormData>({
     firstName: '',
     lastName: '',
@@ -127,7 +127,7 @@ export const Signup: React.FC<SignupProps> = ({ onSignupSuccess, onBackToLogin }
           Create your account
         </h2>
         <p className="mt-2 text-center text-sm text-gray-600">
-          Join the visitor management system
+          Join the Nazrath House Visitor Management System
         </p>
       </div>
 

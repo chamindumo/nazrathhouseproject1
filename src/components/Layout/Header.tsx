@@ -1,7 +1,7 @@
 // src/components/Layout/Header.tsx
 
 import React, { useState, useEffect } from 'react';
-import { Shield, Users, AlertTriangle, Settings, Clock, LogOut, User, Home } from 'lucide-react';
+import { Shield, Users, AlertTriangle, Settings, LogOut, User } from 'lucide-react';
 import { User as UserType } from '../../types';
 
 interface HeaderProps {
@@ -80,8 +80,8 @@ export const Header: React.FC<HeaderProps> = ({
             <div className="flex-shrink-0">
               <div className="w-16 h-16 bg-blue-700 rounded-full flex items-center justify-center shadow-xl">
                 <img 
-                  src="/logo.jpg" 
-                  alt="Nazareth Hospital" 
+                  src="/logo.png" 
+                  alt="Nazrath House" 
                   className="w-14 h-14 rounded-full object-contain bg-white p-1"
                   onError={(e) => {
                     e.currentTarget.style.display = 'none';
@@ -92,7 +92,7 @@ export const Header: React.FC<HeaderProps> = ({
             </div>
             <div>
               <h1 className="text-3xl font-bold text-gray-900">
-                Nazareth Hospital
+                Nazrath House
               </h1>
               <p className="text-lg text-blue-600 font-semibold">Visitor Management</p>
               <p className="text-sm text-gray-500">Secure Visitor System</p>

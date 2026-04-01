@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate, useLocation, useNavigate } from 'react-router-dom';
 import { Header } from './components/Layout/Header';
-import { Dashboard } from './components/Dashboard/Dashboard';
 import { CheckInFlow } from './components/CheckIn/CheckInFlow';
 import { CheckOutFlow } from './components/CheckOut/CheckOutFlow';
 import { Reports } from './components/Reports/Reports';
@@ -294,7 +293,7 @@ function AppContent() {
               <div className="bg-white/80 backdrop-blur-lg rounded-3xl shadow-2xl border border-white/50 overflow-hidden">
                 <div className="text-center pt-12 pb-8 px-8">
                   <h1 className="text-5xl font-bold text-gray-900 mb-4 tracking-tight">
-                    Welcome to Our Facility
+                    Welcome to Nazrath House Visitor Management System
                   </h1>
                   <p className="text-xl text-gray-600">
                     Please select an option below to get started

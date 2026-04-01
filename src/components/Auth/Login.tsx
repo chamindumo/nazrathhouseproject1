@@ -56,7 +56,7 @@ export const Login: React.FC<LoginProps> = ({ onLoginSuccess, onBackToCheckIn, o
           Sign in to your account
         </h2>
         <p className="mt-2 text-center text-sm text-gray-600">
-          Access the admin dashboard and management system
+          Access the Nazrath House Visitor Management System
         </p>
       </div>
 
