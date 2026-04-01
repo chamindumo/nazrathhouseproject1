@@ -24,6 +24,7 @@ export const VisitorForm: React.FC<VisitorFormProps> = ({ onNext }) => {
     visitorMeetingSelection: '' as Visitor['visitorMeetingSelection'],
     visitorCategory: '',
     staffDepartment: '',
+    agencyName: '',
     visitPurpose: 'Personal Visit',
     appointmentType: 'walk-in' as Visitor['appointmentType'],
   });
@@ -31,7 +32,7 @@ export const VisitorForm: React.FC<VisitorFormProps> = ({ onNext }) => {
   const visitorMeetingOptions = [
     { value: 'resident', label: 'Resident' },
     { value: 'staff', label: 'Staff' },
-    { value: 'sisters', label: 'Sisters' }
+    { value: 'agency', label: 'Agency' }
   ];
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -45,7 +46,8 @@ export const VisitorForm: React.FC<VisitorFormProps> = ({ onNext }) => {
 
   const isFormValid = formData.firstName && formData.lastName && formData.phoneNumber && 
     formData.visitorIdNumber && formData.visitorMeetingSelection &&
-    (formData.visitorMeetingSelection !== 'resident' || (formData.residentName && formData.roomNumber));
+    (formData.visitorMeetingSelection !== 'resident' || (formData.residentName && formData.roomNumber)) &&
+    (formData.visitorMeetingSelection !== 'agency' || formData.agencyName);
 
   return (
     <div className="max-w-xl mx-auto">
@@ -74,7 +76,7 @@ export const VisitorForm: React.FC<VisitorFormProps> = ({ onNext }) => {
                   value={formData.firstName}
                   onChange={(e) => setFormData(prev => ({ ...prev, firstName: e.target.value }))}
                   className="w-full pl-12 pr-4 py-4 bg-gray-50 border-2 border-transparent focus:border-blue-500 focus:bg-white rounded-2xl transition-all outline-none text-lg"
-                  placeholder="John"
+                  placeholder="Enter First Name"
                   required
                 />
               </div>
@@ -90,7 +92,7 @@ export const VisitorForm: React.FC<VisitorFormProps> = ({ onNext }) => {
                   value={formData.lastName}
                   onChange={(e) => setFormData(prev => ({ ...prev, lastName: e.target.value }))}
                   className="w-full pl-12 pr-4 py-4 bg-gray-50 border-2 border-transparent focus:border-blue-500 focus:bg-white rounded-2xl transition-all outline-none text-lg"
-                  placeholder="Doe"
+                  placeholder="Enter Last Name"
                   required
                 />
               </div>
@@ -184,6 +186,24 @@ export const VisitorForm: React.FC<VisitorFormProps> = ({ onNext }) => {
                       required
                     />
                   </div>
+                </div>
+              </div>
+            </div>
+          )}
+          {/* Agency Details */}
+          {formData.visitorMeetingSelection === 'agency' && (
+            <div className="space-y-6 animate-in fade-in slide-in-from-top-4 duration-300">
+              <div className="grid grid-cols-1 gap-6 p-6 bg-blue-50 rounded-3xl border border-blue-100">
+                <div className="space-y-2">
+                  <label className="block text-xs font-bold text-blue-700 uppercase">Agency Name</label>
+                  <input
+                    type="text"
+                    value={formData.agencyName}
+                    onChange={(e) => setFormData(prev => ({ ...prev, agencyName: e.target.value }))}
+                    className="w-full px-4 py-3 bg-white border border-blue-200 focus:border-blue-500 rounded-xl outline-none"
+                    placeholder="Enter Agency Name"
+                    required
+                  />
                 </div>
               </div>
             </div>

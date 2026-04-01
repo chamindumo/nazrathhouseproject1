@@ -63,12 +63,12 @@ class EmailService {
           <li>No fever/COVID symptoms (48hrs): ${healthScreening.noFeverOrCovidSymptoms ? '✅' : '❌'}</li>
           <li>Not in contact with ill persons: ${healthScreening.notInContactWithIll ? '✅' : '❌'}</li>
           <li>Temperature: ${healthScreening.temperature ? `${healthScreening.temperature}°F` : 'Not recorded'}</li>
-          <li>Vaccination up-to-date: ${healthScreening.vaccinationStatusUpToDate ? '✅' : 'Not specified'}</li>
+          <li>Vaccination up-to-date: Not specified</li>
           <li>Agreement acknowledged: ${healthScreening.visitorAgreementAcknowledgement ? '✅' : '❌'}</li>
         </ul>
         
-        ${healthScreening.emergencyContactName && healthScreening.emergencyContactNumber ? `
-        <p><strong>Emergency Contact:</strong> ${healthScreening.emergencyContactName} - ${healthScreening.emergencyContactNumber}</p>
+        ${visitor.emergencyContact && visitor.emergencyPhone ? `
+        <p><strong>Emergency Contact:</strong> ${visitor.emergencyContact} - ${visitor.emergencyPhone}</p>
         ` : ''}
         
         <hr>
@@ -187,9 +187,9 @@ class EmailService {
       case 'staff':
         // Send to department head or supervisor
         return `${visitor.staffDepartment?.toLowerCase()}-supervisor@facility.com`;
-      case 'sisters':
-        // Send to sisters' coordinator
-        return 'sisters-coordinator@facility.com';
+      case 'agency':
+        // Send to agency coordinator
+        return 'agency-coordinator@facility.com';
       default:
         return 'admin@facility.com';
     }

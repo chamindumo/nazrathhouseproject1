@@ -24,7 +24,8 @@ export interface Visitor {
   isApproved: boolean;
   notes?: string;
   // New fields for enhanced visitor management
-  visitorMeetingSelection: 'resident' | 'staff' | 'sisters';
+  visitorMeetingSelection: 'resident' | 'staff' | 'agency';
+  agencyName?: string; // For agency names
   visitorCategory?: string; // For resident categories (Power of Attorney, Family Member, etc.)
   visitorCategoryOther?: string; // Text input for "Other" category
   staffDepartment?: string; // For staff departments
